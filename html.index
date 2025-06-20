@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ETH Countdown</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="countdown" class="section center"></section>
+
+  <div class="tabs" id="tabs"></div>
+  <div class="price-display" id="priceDisplay">Loading...</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
