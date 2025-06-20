@@ -1,43 +1,30 @@
 body {
   background-color: #000;
-  color: white;
+  color: #0ff;
   font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
   text-align: center;
+  padding: 20px;
 }
 
-.section {
-  margin-top: 40px;
+h1 {
   font-size: 24px;
-  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.tabs {
-  display: flex;
-  overflow-x: auto;
-  padding: 10px;
-  margin-top: 20px;
-  gap: 10px;
-  justify-content: center;
+table {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  border-collapse: collapse;
 }
 
-.tab {
-  padding: 10px 20px;
-  background: #111;
-  color: #aaa;
-  border-radius: 8px;
-  cursor: pointer;
-  min-width: 70px;
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #333;
 }
 
-.tab.active {
-  background: #0ff;
-  color: #000;
-  font-weight: bold;
-}
-
-.price-display {
-  margin-top: 30px;
-  font-size: 20px;
+@media (max-width: 600px) {
+  table, thead, tbody, th, td, tr {
+    font-size: 14px;
+  }
 }
