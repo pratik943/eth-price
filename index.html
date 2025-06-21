@@ -5,29 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ethereum 10Y ROI Tracker</title>
   <link rel="stylesheet" href="style.css" />
-
-  <!-- 👇 Farcaster Miniapp Frame Metadata -->
-  <meta name="fc:frame" content='{
-    "version": "1",
-    "imageUrl": "https://eth-price-mu.vercel.app/og-image.png",
-    "button": {
-      "title": "Open ETH Tracker",
-      "action": {
-        "type": "launch_frame",
-        "name": "ETH 10Y ROI Calculator",
-        "url": "https://eth-price-mu.vercel.app",
-        "splashImageUrl": "https://eth-price-mu.vercel.app/splash.png",
-        "splashBackgroundColor": "#000000"
-      }
-    }
-  }'/>
 </head>
-
 <body>
   <header>
-    <h1>🎉 Ethereum's 10-Year Anniversary ROI Calculator</h1>
+    <h1>🎉 Ethereum 10-Year Anniversary</h1>
   </header>
 
+  <!-- Countdown -->
   <section class="countdown-box">
     <h2>Countdown</h2>
     <div class="countdown-grid">
@@ -38,6 +22,7 @@
     </div>
   </section>
 
+  <!-- ROI Table -->
   <table>
     <thead>
       <tr>
@@ -50,11 +35,13 @@
     <tbody id="table-body"></tbody>
   </table>
 
+  <!-- Today's ETH Price -->
   <section class="today-price">
     <h3>Today ETH Price</h3>
     <p id="live-price">$---</p>
   </section>
 
+  <!-- Social Footer -->
   <footer class="social-footer">
     <p>👀 Follow me on:</p>
     <div class="social-links">
@@ -67,13 +54,6 @@
       </a>
     </div>
   </footer>
-
-  <!-- 👇 Miniapp Ready Signal -->
-  <script type="module" src="https://esm.sh/@farcaster/frame-sdk"></script>
-  <script type="module">
-    import { sdk } from 'https://esm.sh/@farcaster/frame-sdk';
-    sdk.actions.ready();
-  </script>
 
   <script src="script.js"></script>
 </body>
