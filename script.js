@@ -1,41 +1,57 @@
 const tableBody = document.getElementById("table-body");
-const countdown = document.getElementById("countdown");
+const livePriceDisplay = document.getElementById("live-price");
 
-// Countdown
+// Countdown logic
 function updateCountdown() {
   const now = new Date();
-  const target = new Date("2025-07-30T00:00:00");
+  const target = new Date("2025-07-30T00:00:00Z");
   const diff = target - now;
-  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const m = Math.floor((diff / (1000 * 60)) % 60);
-  const s = Math.floor((diff / 1000) % 60);
-  countdown.innerText = `Countdown to 30 July 2025: ${d}d ${h}h ${m}m ${s}s`;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = hours;
+  document.getElementById("minutes").textContent = minutes;
+  document.getElementById("seconds").textContent = seconds;
 }
+
+// Start countdown updates
 setInterval(updateCountdown, 1000);
+updateCountdown(); // run once immediately
 
-// Load ETH data
+// ROI Table logic
 async function renderTable() {
-  const response = await fetch('eth-prices.json');
-  const prices = await response.json();
+  try {
+    const response = await fetch("eth-prices.json");
+    const prices = await response.json();
 
-  const live = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd');
-  const livePrice = (await live.json()).ethereum.usd;
+    const liveRes = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd");
+    const liveData = await liveRes.json();
+    const livePrice = liveData.ethereum.usd;
 
-  for (const year in prices) {
-    const price = prices[year];
-    const ethAmount = 1000 / price;
-    const valueToday = ethAmount * livePrice;
+    livePriceDisplay.textContent = `$${livePrice.toFixed(2)}`;
 
-    const row = `
-      <tr>
-        <td>${year}</td>
-        <td>$${price.toFixed(2)}</td>
-        <td>${ethAmount.toFixed(2)}</td>
-        <td style="color: #fff">$${valueToday.toFixed(2)}</td>
-      </tr>
-    `;
-    tableBody.innerHTML += row;
+    for (const year in prices) {
+      const historicalPrice = prices[year];
+      const ethAmount = 1000 / historicalPrice;
+      const valueToday = ethAmount * livePrice;
+
+      const row = `
+        <tr>
+          <td>${year}</td>
+          <td>$${historicalPrice.toFixed(2)}</td>
+          <td>${ethAmount.toFixed(2)}</td>
+          <td style="color:#fff">$${valueToday.toFixed(2)}</td>
+        </tr>
+      `;
+      tableBody.innerHTML += row;
+    }
+  } catch (error) {
+    console.error("Error loading data:", error);
+    livePriceDisplay.textContent = "Failed to load live ETH price.";
   }
 }
 
