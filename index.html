@@ -3,12 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ethereum 10 Year Anniversary</title>
+  <title>Ethereum 10Y ROI Tracker</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🎉 Ethereum's 10-Year Anniversary ROI Calculator</h1>
-  <p id="countdown"></p>
+  <header>
+    <h1>🎉 Ethereum's 10-Year Anniversary ROI Calculator</h1>
+  </header>
+
+  <!-- Countdown -->
+  <section class="countdown-box">
+    <h2>Countdown</h2>
+    <div class="countdown-grid">
+      <div><span id="days">--</span><small>Days</small></div>
+      <div><span id="hours">--</span><small>Hours</small></div>
+      <div><span id="minutes">--</span><small>Minutes</small></div>
+      <div><span id="seconds">--</span><small>Seconds</small></div>
+    </div>
+  </section>
+
+  <!-- ROI Table -->
   <table>
     <thead>
       <tr>
@@ -20,6 +34,27 @@
     </thead>
     <tbody id="table-body"></tbody>
   </table>
+
+  <!-- Today's ETH Price -->
+  <section class="today-price">
+    <h3>Today ETH Price</h3>
+    <p id="live-price">$---</p>
+  </section>
+
+  <!-- Social Footer -->
+  <footer class="social-footer">
+    <p>👀 Follow me on:</p>
+    <div class="social-links">
+      <a class="glow-link" href="https:/farcaster.xyz/pratiksharma" target="_blank">
+        <span class="emoji">💸</span> Farcaster
+      </a>
+      <span>•</span>
+      <a class="glow-link" href="https://x.com/Pratiksharma95" target="_blank">
+        <span class="emoji">💦</span> X
+      </a>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
