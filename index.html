@@ -56,5 +56,13 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- Farcaster Mini App SDK -->
+  <script type="module">
+    import { sdk } from 'https://esm.sh/@farcaster/miniapp-sdk';
+
+    sdk.actions.ready({ disableNativeGestures: true });
+  </script>
+
 </body>
 </html>
