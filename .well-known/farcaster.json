@@ -6,11 +6,11 @@
   },
   "frame": {
     "version": "1",
-    "name": "Pratik Sharma",
+    "name": "ETH ANNIVERSARY",
     "iconUrl": "https://eth-price-mu.vercel.app/icon.png",
     "homeUrl": "https://eth-price-mu.vercel.app",
     "imageUrl": "https://eth-price-mu.vercel.app/image.png",
-    "buttonTitle": "Check this out",
+    "buttonTitle": "Launch Countdown",
     "splashImageUrl": "https://eth-price-mu.vercel.app/splash.png",
     "splashBackgroundColor": "#eeccff",
     "webhookUrl": "https://eth-price-mu.vercel.app/api/webhook"
