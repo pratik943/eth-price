@@ -5,6 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ethereum 10Y ROI Tracker</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Farcaster Frame Meta Tag -->
+  <meta name="fc:frame" content='{
+    "version": "vNext",
+    "title": "ETH 10 Year Countdown Action",
+    "imageUrl": "https://eth-price-mu.vercel.app/image.png",
+    "button": {
+      "title": "Launch Countdown",
+      "action": {
+        "type": "launch_frame",
+        "url": "https://eth-price-mu.vercel.app"
+      }
+    }
+  }' />
+
+  <!-- Redirect Fallback for Regular Browsers -->
+  <meta http-equiv="refresh" content="0; url=https://eth-price-mu.vercel.app">
 </head>
 <body>
   <header>
