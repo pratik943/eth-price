@@ -23,12 +23,14 @@ header, footer {
   justify-content: center;
   gap: 1em;
   font-size: 1.5em;
+  flex-wrap: wrap;
 }
 
 .countdown-grid div {
   background-color: #1f1f1f;
   padding: 1em;
   border-radius: 8px;
+  min-width: 80px;
 }
 
 table {
@@ -55,4 +57,30 @@ th {
 
 .glow-link:hover {
   text-shadow: 0 0 5px #00e6e6;
+}
+
+/* 🔒 Mobile responsiveness */
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+
+  .countdown-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  table {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  th, td {
+    padding: 6px;
+  }
+
+  .today-price, .countdown-box {
+    margin: 1em auto;
+  }
 }
