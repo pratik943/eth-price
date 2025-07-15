@@ -1,0 +1,18 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjE3NjUyLCJ0eXBlIjoiY3VzdG9keSIsImtleSI6IjB4RGM1QmU0Mjg2MEZBRDQ3MTFlQTQ5Nzk4QzE2RDRmMjgwQUMxMzZGMyJ9",
+    "payload": "eyJkb21haW4iOiJldGgtcHJpY2UtbXUudmVyY2VsLmFwcCJ9",
+    "signature": "MHg4ZGE5MmRjN2RlYzRhNTMwNDQxODhkOTJhNWQ3OWYzOTUwZmMxOTUxYTliYjY5ZjYyZGEzZWQyYjE2Zjk3ODg1MjY5ZTUwMjVmNzJkOTYzNzM5YmQ3MGYzZTVkZmQzNzE0YzE4ZTI4NGU5NWE5YTkwMWVmZmM2MDljOGIzMGNiMTFj"
+  },
+  "frame": {
+    "version": "1",
+    "name": "Pratik Sharma",
+    "iconUrl": "https://eth-price-mu.vercel.app/icon.png",
+    "homeUrl": "https://eth-price-mu.vercel.app",
+    "imageUrl": "https://eth-price-mu.vercel.app/image.png",
+    "buttonTitle": "Check this out",
+    "splashImageUrl": "https://eth-price-mu.vercel.app/splash.png",
+    "splashBackgroundColor": "#eeccff",
+    "webhookUrl": "https://eth-price-mu.vercel.app/api/webhook"
+  }
+}
