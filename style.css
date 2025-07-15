@@ -18,12 +18,13 @@ header, footer {
   margin: 2em auto;
 }
 
+/* ✅ Responsive countdown grid (2x2 on mobile, 4x1 on wide) */
 .countdown-grid {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 1em;
+  justify-items: center;
   font-size: 1.5em;
-  flex-wrap: wrap;
 }
 
 .countdown-grid div {
@@ -31,6 +32,7 @@ header, footer {
   padding: 1em;
   border-radius: 8px;
   min-width: 80px;
+  text-align: center;
 }
 
 table {
@@ -59,16 +61,11 @@ th {
   text-shadow: 0 0 5px #00e6e6;
 }
 
-/* 🔒 Mobile responsiveness */
+/* 🔒 Mobile-specific refinements */
 @media screen and (max-width: 480px) {
   body {
     font-size: 16px;
     padding: 0 10px;
-  }
-
-  .countdown-grid {
-    flex-direction: column;
-    align-items: center;
   }
 
   table {
