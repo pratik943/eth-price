@@ -5,6 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ethereum 10Y ROI Tracker</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Farcaster Frame Meta Tag -->
+  <meta name="fc:frame" content='{
+    "version": "vNext",
+    "title": "ETH 10 Year Countdown Action",
+    "imageUrl": "https://eth-price-mu.vercel.app/image.png",
+    "button": {
+      "title": "Launch Countdown",
+      "action": {
+        "type": "launch_frame",
+        "url": "https://eth-price-mu.vercel.app"
+      }
+    }
+  }' />
+
+  <!-- Farcaster Miniapp Meta Tag -->
+  <meta name="fc:miniapp" content='{
+    "version": "1",
+    "imageUrl": "https://eth-price-mu.vercel.app/og.png",
+    "button": {
+      "title": "Track ETH ROI",
+      "action": {
+        "type": "launch_miniapp",
+        "name": "ETH ROI Tracker",
+        "url": "https://eth-price-mu.vercel.app",
+        "splashImageUrl": "https://eth-price-mu.vercel.app/splash.png",
+        "splashBackgroundColor": "#fff"
+      }
+    }
+  }'/>
+
+  <!-- Safe conditional redirect -->
+  <script>
+    if (!navigator.userAgent.includes("Farcaster")) {
+      window.location.href = "https://eth-price-mu.vercel.app";
+    }
+  </script>
 </head>
 <body>
   <header>
@@ -60,9 +98,7 @@
   <!-- Farcaster Mini App SDK -->
   <script type="module">
     import { sdk } from 'https://esm.sh/@farcaster/miniapp-sdk';
-
     sdk.actions.ready({ disableNativeGestures: true });
   </script>
-
 </body>
 </html>
