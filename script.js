@@ -18,19 +18,22 @@ function updateCountdown() {
   document.getElementById("seconds").textContent = seconds;
 }
 
-// Start countdown updates
 setInterval(updateCountdown, 1000);
-updateCountdown(); // run once immediately
+updateCountdown();
 
-// ROI Table logic
+// ROI Table logic with enhanced error handling
 async function renderTable() {
   try {
     const response = await fetch("eth-prices.json");
+    if (!response.ok) throw new Error("Failed to load eth-prices.json");
     const prices = await response.json();
 
     const liveRes = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd");
+    if (!liveRes.ok) throw new Error("Failed to fetch live ETH price");
     const liveData = await liveRes.json();
-    const livePrice = liveData.ethereum.usd;
+
+    const livePrice = liveData?.ethereum?.usd;
+    if (!livePrice) throw new Error("Live price missing in response");
 
     livePriceDisplay.textContent = `$${livePrice.toFixed(2)}`;
 
@@ -50,8 +53,9 @@ async function renderTable() {
       tableBody.innerHTML += row;
     }
   } catch (error) {
-    console.error("Error loading data:", error);
-    livePriceDisplay.textContent = "Failed to load live ETH price.";
+    console.error("❌ Error loading ETH data:", error);
+    livePriceDisplay.textContent = "⚠️ Price unavailable";
+    tableBody.innerHTML = `<tr><td colspan="4" style="color:red">Error loading ROI data.</td></tr>`;
   }
 }
 
