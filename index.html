@@ -39,7 +39,11 @@
 
   <!-- Safe conditional redirect -->
   <script>
-    if (!navigator.userAgent.includes("Farcaster")) {
+    const isFarcaster = navigator.userAgent.includes("Farcaster");
+    const isEmbedded = window.top !== window.self;
+    const isAlreadyHere = window.location.hostname === "eth-price-mu.vercel.app";
+
+    if (!isFarcaster && !isEmbedded && !isAlreadyHere) {
       window.location.href = "https://eth-price-mu.vercel.app";
     }
   </script>
